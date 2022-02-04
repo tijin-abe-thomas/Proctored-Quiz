@@ -30,21 +30,21 @@ while True:
     frame = vs.read()
     frame = imutils.resize(frame, width=400)
 
-    # grab the frame dimensions and convert it to a blob
+    # Convert frame dimensions to a blob
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0,
                                  (300, 300), (104.0, 177.0, 123.0))
 
-    # pass the blob through the network and obtain the detections and predictions
+    # Compute detections and Predictions
     net.setInput(blob)
     detections = net.forward()
 
-    # loop over the detections
+    # Loop statements until the Video Stream is closed
     for i in range(0, detections.shape[2]):
-        # extract the confidence (i.e., probability) associated with the prediction
+        # Compute confidence of detection.
         confidence = detections[0, 0, i, 2]
 
-        # Check confidence of detection and ignore false detects
+        # Compare confidence of detection with threshold and ignore false detects.
         if confidence < args["confidence"]:
             continue
 
