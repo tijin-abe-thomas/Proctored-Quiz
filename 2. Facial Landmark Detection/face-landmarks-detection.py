@@ -20,7 +20,7 @@ while True:
 
         landmarks = predictor(gray, face)
 
-        for n in range(36, 47):
+        for n in range(0, 67):
             x = landmarks.part(n).x
             y = landmarks.part(n).y
             cv2.circle(frame, (x, y), 2, (0, 0, 255), -1)
