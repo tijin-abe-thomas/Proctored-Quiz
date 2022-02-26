@@ -1,0 +1,6 @@
+anaconda==0.0.1.1
+cmake==3.22.2
+ez-setup==0.9
+imutils==0.5.4
+numpy==1.22.1
+opencv-python==4.5.5.62
